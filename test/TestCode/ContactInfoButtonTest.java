@@ -1,9 +1,9 @@
 package TestCode;
 
-import dragonRestaurant.Controller.ContactInfoButton;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
+import dragonRestaurant.Controller.ContactInfoButton;
 
 public class ContactInfoButtonTest {
  
