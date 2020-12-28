@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TestCode;
 
-import dragonRestaurant.Controller.BreadsButton;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import dragonRestaurant.Model.Extras;
+import dragonRestaurant.Controller.BreadsButton;
 import org.junit.Before;
-/**
- *
- * @author SN PC
- */
+
 public class BreadsButtonTest {
    
     Extras e;
@@ -25,10 +17,7 @@ public class BreadsButtonTest {
         e= new Extras();
         bb= new BreadsButton();
     }
-    
-    /**
-     * Test of actionPerformed method, of class BreadsButton.
-     */
+
     @Test
     public void testActionPerformed() {
         bb.actionPerformed();

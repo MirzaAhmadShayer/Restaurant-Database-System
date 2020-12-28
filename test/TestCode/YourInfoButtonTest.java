@@ -1,19 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package TestCode;
 
-import dragonRestaurant.Controller.YourInfoButton;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
+import dragonRestaurant.Controller.YourInfoButton;
 
-/**
- *
- * @author SN PC
- */
 public class YourInfoButtonTest {
     
     YourInfoButton yib;
@@ -23,9 +14,7 @@ public class YourInfoButtonTest {
         System.out.println("Set up");
         yib = new YourInfoButton();
     }
-    /**
-     * Test of actionPerformed method, of class YourInfoButton.
-     */
+
     @Test
     public void testActionPerformed() {
         yib.actionPerformed();
