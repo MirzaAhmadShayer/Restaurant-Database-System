@@ -453,17 +453,17 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void OrderNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderNowButtonActionPerformed
         OrderNowButton onb = new OrderNowButton();
-        onb.ActionPerformed(evt);
+        onb.actionPerformed();
     }//GEN-LAST:event_OrderNowButtonActionPerformed
 
     private void ResetFullOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetFullOrderButtonActionPerformed
         ResetFullOrderButton r = new ResetFullOrderButton();
-        r.ActionPerformed(evt);
+        r.actionPerformed();
     }//GEN-LAST:event_ResetFullOrderButtonActionPerformed
 
     private void DeleteOneItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteOneItemButtonActionPerformed
         DeleteOneItemButton d= new DeleteOneItemButton();
-        d.actionPerformed(evt);
+        d.actionPerformed();
     }//GEN-LAST:event_DeleteOneItemButtonActionPerformed
 
     private void AppetizersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppetizersButtonActionPerformed
@@ -474,27 +474,27 @@ public class MainGUI extends javax.swing.JFrame {
 
     private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
         ExitButton e = new ExitButton();
-        e.ActionPerformed(evt);
+        e.actionPerformed();
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     private void ContactInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactInfoButtonActionPerformed
         ContactInfoButton c = new ContactInfoButton();
-        c.ActionPerformed(evt);
+        c.ActionPerformed();
     }//GEN-LAST:event_ContactInfoButtonActionPerformed
 
     private void DiscountsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscountsButtonActionPerformed
         DiscountsButton db = new DiscountsButton();
-        db.ActionPerformed(evt);
+        db.actionPerformed();
     }//GEN-LAST:event_DiscountsButtonActionPerformed
 
     private void YourInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_YourInfoButtonActionPerformed
         YourInfoButton yib = new YourInfoButton();
-        yib.ActionPerformed(evt);
+        yib.actionPerformed();
     }//GEN-LAST:event_YourInfoButtonActionPerformed
 
     private void HomeDeliveryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HomeDeliveryButtonActionPerformed
         HomeDeliveryButton hdb = new HomeDeliveryButton();
-        hdb.actionPerformed(evt);
+        hdb.actionPerformed();
     }//GEN-LAST:event_HomeDeliveryButtonActionPerformed
 
     public static void main(String args[]) {

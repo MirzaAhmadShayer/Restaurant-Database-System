@@ -1,13 +1,7 @@
 package dragonRestaurant.Model;
 
-import com.mysql.jdbc.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import dragonRestaurant.Controller.SpecialsButton;
+import dragonRestaurant.Controller.specialsSelectedButton;
 
 public class Specials extends javax.swing.JFrame {
     public Specials() {
@@ -121,40 +115,13 @@ public class Specials extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SpecialsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpecialsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_specials";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            if(SpecialsButton.isSelected()){
-                String speQuery="Select * from specials";
-                PreparedStatement query=connect.prepareStatement(speQuery);
-                ResultSet rs=query.executeQuery();
-                SpecialsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Specials Button is not responding");
-        }
+        SpecialsButton sb = new SpecialsButton();
+        sb.actionPerformed();
     }//GEN-LAST:event_SpecialsButtonActionPerformed
 
     private void specialsSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specialsSelectedButtonActionPerformed
-        if(SpecialsTable.getRowCount()!=0){
-            int[] selected=SpecialsTable.getSelectedRows();
-            Object[] headers=new Object[]{"Dish Name","Price(Tk)"};
-            Object[] rows=new Object[2];
-            DefaultTableModel tmb=(DefaultTableModel) MainGUI.OrdersTable.getModel();
-            tmb.setColumnIdentifiers(headers);
-            for(int count=0;count<selected.length;count++){
-                rows[0]= SpecialsTable.getValueAt(selected[count], 0);
-                rows[1]=SpecialsTable.getValueAt(selected[count], 2);
-                tmb.addRow(rows);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "The Specials table is Empty!");
-        }
+        specialsSelectedButton ssb = new specialsSelectedButton();
+        ssb.actionPerformed();
     }//GEN-LAST:event_specialsSelectedButtonActionPerformed
 
     public static void main(String args[]) {
@@ -174,12 +141,12 @@ public class Specials extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton SpecialsButton;
-    private javax.swing.JTable SpecialsTable;
+    public static javax.swing.JRadioButton SpecialsButton;
+    public static javax.swing.JTable SpecialsTable;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton specialsSelectedButton;
+    public static javax.swing.JButton specialsSelectedButton;
     // End of variables declaration//GEN-END:variables
 }

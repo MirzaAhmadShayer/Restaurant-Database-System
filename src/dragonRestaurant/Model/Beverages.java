@@ -1,13 +1,10 @@
 package dragonRestaurant.Model;
 
-import com.mysql.jdbc.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import dragonRestaurant.Controller.FruitJuicesButton;
+import dragonRestaurant.Controller.HotItemsButton;
+import dragonRestaurant.Controller.MilkshakesButton;
+import dragonRestaurant.Controller.SoftDrinksButton;
+import dragonRestaurant.Controller.beveragesSelectButton;
 
 public class Beverages extends javax.swing.JFrame {
     public Beverages() {
@@ -165,92 +162,28 @@ public class Beverages extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FruitJuicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FruitJuicesButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_beverages";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String fjQuery="Select * From fruit_juices";
-            PreparedStatement query=connect.prepareStatement(fjQuery);
-            ResultSet rs=query.executeQuery();
-            BeveragesTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Fruit Juices Button is not Working");
-        }
+        FruitJuicesButton fjb = new FruitJuicesButton();
+        fjb.actionPerformed();
     }//GEN-LAST:event_FruitJuicesButtonActionPerformed
 
     private void HotItemsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HotItemsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_beverages";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String hQuery="Select * From hot_items";
-            PreparedStatement query=connect.prepareStatement(hQuery);
-            ResultSet rs=query.executeQuery();
-            BeveragesTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Hot Items Button is not Working");
-        }
+        HotItemsButton hib = new HotItemsButton();
+        hib.actionPerformed();
     }//GEN-LAST:event_HotItemsButtonActionPerformed
 
     private void MilkshakesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MilkshakesButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_beverages";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String msQuery="Select * From milk_shakes";
-            PreparedStatement query=connect.prepareStatement(msQuery);
-            ResultSet rs=query.executeQuery();
-            BeveragesTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Milkshakes Button is not Working");
-        }
+       MilkshakesButton msb = new MilkshakesButton();
+       msb.actionPerformed();
     }//GEN-LAST:event_MilkshakesButtonActionPerformed
 
     private void SoftDrinksButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoftDrinksButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_beverages";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String sdQuery="Select * From soft_drinks";
-            PreparedStatement query=connect.prepareStatement(sdQuery);
-            ResultSet rs=query.executeQuery();
-            BeveragesTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Soft Drinks Button is not Working");
-        }
+       SoftDrinksButton sdb = new SoftDrinksButton();
+       sdb.actionPerformed();
     }//GEN-LAST:event_SoftDrinksButtonActionPerformed
 
     private void beveragesSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beveragesSelectButtonActionPerformed
-        if(BeveragesTable.getRowCount()!=0){
-            int[] selected=BeveragesTable.getSelectedRows();
-            Object[] headers=new Object[]{"Dish Name","Price(Tk)"};
-            Object[] rows=new Object[2];
-            DefaultTableModel tmb=(DefaultTableModel) MainGUI.OrdersTable.getModel();
-            tmb.setColumnIdentifiers(headers);
-            for(int count=0;count<selected.length;count++){
-                rows[0]= BeveragesTable.getValueAt(selected[count], 0);
-                rows[1]=BeveragesTable.getValueAt(selected[count], 2);
-                tmb.addRow(rows);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "The Beverages table is Empty!");
-        }
+       beveragesSelectButton bsb = new beveragesSelectButton();
+       bsb.actionPerformed();
     }//GEN-LAST:event_beveragesSelectButtonActionPerformed
 
     public static void main(String args[]) {
@@ -270,7 +203,7 @@ public class Beverages extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable BeveragesTable;
+    public static javax.swing.JTable BeveragesTable;
     private javax.swing.JButton FruitJuicesButton;
     private javax.swing.JButton HotItemsButton;
     private javax.swing.JButton MilkshakesButton;

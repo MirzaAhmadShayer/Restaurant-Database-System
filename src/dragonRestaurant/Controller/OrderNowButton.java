@@ -1,10 +1,9 @@
 package dragonRestaurant.Controller;
 
-import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
 public class OrderNowButton {
-    public void ActionPerformed(ActionEvent e){
+    public void actionPerformed(){
         double totalPrice=0;
         double dispri;
         //discount

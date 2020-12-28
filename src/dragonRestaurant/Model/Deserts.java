@@ -1,14 +1,7 @@
 package dragonRestaurant.Model;
 
-import com.mysql.jdbc.Connection;
-import java.awt.HeadlessException;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import dragonRestaurant.Controller.DesertsComboBox;
+import dragonRestaurant.Controller.desertsSelectButton;
 
 public class Deserts extends javax.swing.JFrame {
     public Deserts() {
@@ -123,71 +116,13 @@ public class Deserts extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DesertsComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesertsComboBoxActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_deserts";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String selectedItem=DesertsComboBox.getSelectedItem().toString();
-            String dQuery;
-            
-            if(selectedItem.equals("Select...")){
-                JOptionPane.showMessageDialog(null, "Please Select an Item!!");
-            }
-            if(selectedItem.equals("Cakes")){
-                dQuery="Select * from cakes";
-                PreparedStatement query=connect.prepareStatement(dQuery);
-                ResultSet rs=query.executeQuery();
-                DesertsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-            if(selectedItem.equals("Donuts")){
-                dQuery="Select * from donuts";
-                PreparedStatement query=connect.prepareStatement(dQuery);
-                ResultSet rs=query.executeQuery();
-                DesertsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-            if(selectedItem.equals("Ice Cream")){
-                dQuery="Select * from ice_cream";
-                PreparedStatement query=connect.prepareStatement(dQuery);
-                ResultSet rs=query.executeQuery();
-                DesertsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-            if(selectedItem.equals("Muffins")){
-                dQuery="Select * from muffins";
-                PreparedStatement query=connect.prepareStatement(dQuery);
-                ResultSet rs=query.executeQuery();
-                DesertsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-            if(selectedItem.equals("Sweets")){
-                dQuery="Select * from sweets";
-                PreparedStatement query=connect.prepareStatement(dQuery);
-                ResultSet rs=query.executeQuery();
-                DesertsTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-             
-         }
-         catch(HeadlessException | ClassNotFoundException | SQLException e){
-             JOptionPane.showMessageDialog(null, "Deserts Select Box Not Working!");
-         } 
+        DesertsComboBox dcb = new DesertsComboBox();
+        dcb.actionPerformed();
     }//GEN-LAST:event_DesertsComboBoxActionPerformed
 
     private void desertsSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_desertsSelectButtonActionPerformed
-        if(DesertsTable.getRowCount()!=0){
-            int[] selected=DesertsTable.getSelectedRows();
-            Object[] headers=new Object[]{"Dish Name","Price(Tk)"};
-            Object[] rows=new Object[2];
-            DefaultTableModel tmb=(DefaultTableModel) MainGUI.OrdersTable.getModel();
-            tmb.setColumnIdentifiers(headers);
-            for(int count=0;count<selected.length;count++){
-                rows[0]= DesertsTable.getValueAt(selected[count], 0);
-                rows[1]=DesertsTable.getValueAt(selected[count], 2);
-                tmb.addRow(rows);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "The Deserts table is Empty!");
-        }
+       desertsSelectButton dsb = new desertsSelectButton();
+       dsb.actionPerformed();
     }//GEN-LAST:event_desertsSelectButtonActionPerformed
 
     public static void main(String args[]) {
@@ -207,8 +142,8 @@ public class Deserts extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> DesertsComboBox;
-    private javax.swing.JTable DesertsTable;
+    public static javax.swing.JComboBox<String> DesertsComboBox;
+    public static javax.swing.JTable DesertsTable;
     private javax.swing.JButton desertsSelectButton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;

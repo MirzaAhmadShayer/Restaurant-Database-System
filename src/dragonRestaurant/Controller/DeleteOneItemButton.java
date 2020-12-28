@@ -1,11 +1,10 @@
 package dragonRestaurant.Controller;
 import dragonRestaurant.Model.MainGUI;
-import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class DeleteOneItemButton {
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(){
         DefaultTableModel tmb = (DefaultTableModel) MainGUI.OrdersTable.getModel();
         if(MainGUI.OrdersTable.getSelectedRowCount()==1){
             tmb.removeRow(MainGUI.OrdersTable.getSelectedRow());

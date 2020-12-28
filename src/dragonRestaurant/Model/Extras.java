@@ -1,13 +1,10 @@
 package dragonRestaurant.Model;
 
-import com.mysql.jdbc.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import dragonRestaurant.Controller.BiscuitsButton;
+import dragonRestaurant.Controller.BreadsButton;
+import dragonRestaurant.Controller.CheeseButton;
+import dragonRestaurant.Controller.SaucesButton;
+import dragonRestaurant.Controller.extrasSelectButton;
 
 public class Extras extends javax.swing.JFrame {
     public Extras() {
@@ -172,100 +169,28 @@ public class Extras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BiscuitsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BiscuitsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_extras";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            if(BiscuitsButton.isSelected()){
-                String biQuery="Select * from biscuits";
-                PreparedStatement query=connect.prepareStatement(biQuery);
-                ResultSet rs=query.executeQuery();
-                ExtrasTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Biscuits Button is not responding");
-        }
+        BiscuitsButton bb1 = new BiscuitsButton();
+        bb1.actionPerformed();
     }//GEN-LAST:event_BiscuitsButtonActionPerformed
 
     private void BreadsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BreadsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_extras";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            if(BreadsButton.isSelected()){
-                String brQuery="Select * from breads";
-                PreparedStatement query=connect.prepareStatement(brQuery);
-                ResultSet rs=query.executeQuery();
-                ExtrasTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Breads Button is not responding");
-        }
+        BreadsButton bb2 = new BreadsButton();
+        bb2.actionPerformed();
     }//GEN-LAST:event_BreadsButtonActionPerformed
 
     private void CheeseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheeseButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_extras";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            if(CheeseButton.isSelected()){
-                String cQuery="Select * from cheese";
-                PreparedStatement query=connect.prepareStatement(cQuery);
-                ResultSet rs=query.executeQuery();
-                ExtrasTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Cheese Button is not responding");
-        }
+        CheeseButton cb = new CheeseButton();
+        cb.actionPerformed();
     }//GEN-LAST:event_CheeseButtonActionPerformed
 
     private void SaucesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaucesButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_extras";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            if(SaucesButton.isSelected()){
-                String sQuery="Select * from sauces";
-                PreparedStatement query=connect.prepareStatement(sQuery);
-                ResultSet rs=query.executeQuery();
-                ExtrasTable.setModel(DbUtils.resultSetToTableModel(rs));
-            }
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Sauces Button is not responding");
-        }
+        SaucesButton sb = new SaucesButton();
+        sb.actionPerformed();
     }//GEN-LAST:event_SaucesButtonActionPerformed
 
     private void extrasSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_extrasSelectButtonActionPerformed
-        if(ExtrasTable.getRowCount()!=0){
-            int[] selected=ExtrasTable.getSelectedRows();
-            Object[] headers=new Object[]{"Dish Name","Price(Tk)"};
-            Object[] rows=new Object[2];
-            DefaultTableModel tmb=(DefaultTableModel) MainGUI.OrdersTable.getModel();
-            tmb.setColumnIdentifiers(headers);
-            for(int count=0;count<selected.length;count++){
-                rows[0]= ExtrasTable.getValueAt(selected[count], 0);
-                rows[1]=ExtrasTable.getValueAt(selected[count], 1);
-                tmb.addRow(rows);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "The Extras table is Empty!");
-        }
+        extrasSelectButton esb = new extrasSelectButton();
+        esb.actionPerformed();
     }//GEN-LAST:event_extrasSelectButtonActionPerformed
 
     public static void main(String args[]) {
@@ -285,13 +210,13 @@ public class Extras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton BiscuitsButton;
-    private javax.swing.JRadioButton BreadsButton;
-    private javax.swing.JRadioButton CheeseButton;
-    private javax.swing.JTable ExtrasTable;
-    private javax.swing.JRadioButton SaucesButton;
+    public static javax.swing.JRadioButton BiscuitsButton;
+    public static javax.swing.JRadioButton BreadsButton;
+    public static javax.swing.JRadioButton CheeseButton;
+    public static javax.swing.JTable ExtrasTable;
+    public static javax.swing.JRadioButton SaucesButton;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton extrasSelectButton;
+    public static javax.swing.JButton extrasSelectButton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

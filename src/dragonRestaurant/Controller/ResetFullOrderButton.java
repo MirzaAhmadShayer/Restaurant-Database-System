@@ -1,12 +1,11 @@
 package dragonRestaurant.Controller;
 
 import dragonRestaurant.Model.MainGUI;
-import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ResetFullOrderButton {
-    public void ActionPerformed(ActionEvent e){
+    public void actionPerformed(){
         DefaultTableModel tmb = (DefaultTableModel) MainGUI.OrdersTable.getModel();
         if(MainGUI.OrdersTable.getRowCount()==0){
             JOptionPane.showMessageDialog(null, "THE TABLE IS ALREADY EMPTY");

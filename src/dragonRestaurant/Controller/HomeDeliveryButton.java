@@ -1,10 +1,9 @@
 package dragonRestaurant.Controller;
 
-import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
 public class HomeDeliveryButton extends YourInfoButton{  
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(){
         if(dragonRestaurant.Model.MainGUI.TotalPriceLabel.getText().equals("Nothing Ordered!"))
           JOptionPane.showMessageDialog(null,"PRESS ORDER NOW BUTTON FIRST!");
         else

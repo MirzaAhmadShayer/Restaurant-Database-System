@@ -1,18 +1,14 @@
 package dragonRestaurant.Model;
 
-import com.mysql.jdbc.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+import dragonRestaurant.Controller.FastFoodsButton;
+import dragonRestaurant.Controller.appetizersSelectButton;
+import dragonRestaurant.Controller.SoupsButton;
 
 public class Appetizers extends javax.swing.JFrame {
     public Appetizers() {
         initComponents();
     }
+    
 //Generated Code is the View    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -22,7 +18,7 @@ public class Appetizers extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         FastFoodsButton = new javax.swing.JButton();
         SoupsButton = new javax.swing.JButton();
-        TakeSelectedAppetizersButton = new javax.swing.JButton();
+        appetizersSelectButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         AppetizersTable = new javax.swing.JTable();
 
@@ -51,11 +47,11 @@ public class Appetizers extends javax.swing.JFrame {
             }
         });
 
-        TakeSelectedAppetizersButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        TakeSelectedAppetizersButton.setText("Take Selected Appetizers");
-        TakeSelectedAppetizersButton.addActionListener(new java.awt.event.ActionListener() {
+        appetizersSelectButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        appetizersSelectButton.setText("Take Selected Appetizers");
+        appetizersSelectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TakeSelectedAppetizersButtonActionPerformed(evt);
+                appetizersSelectButtonActionPerformed(evt);
             }
         });
 
@@ -72,7 +68,7 @@ public class Appetizers extends javax.swing.JFrame {
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(FastFoodsButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(SoupsButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(TakeSelectedAppetizersButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(appetizersSelectButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -91,7 +87,7 @@ public class Appetizers extends javax.swing.JFrame {
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(TakeSelectedAppetizersButton))
+                        .addComponent(appetizersSelectButton))
                     .addComponent(jLabel1))
                 .addGap(23, 23, 23))
         );
@@ -101,7 +97,7 @@ public class Appetizers extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TakeSelectedAppetizersButton)
+                .addComponent(appetizersSelectButton)
                 .addGap(11, 11, 11)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SoupsButton)
@@ -124,57 +120,19 @@ public class Appetizers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TakeSelectedAppetizersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TakeSelectedAppetizersButtonActionPerformed
-        if(AppetizersTable.getRowCount()!=0){
-            int[] selected=AppetizersTable.getSelectedRows();
-            Object[] headers=new Object[]{"Dish Name","Price(Tk)"};
-            Object[] rows=new Object[2];
-            DefaultTableModel tmb=(DefaultTableModel) MainGUI.OrdersTable.getModel();
-            tmb.setColumnIdentifiers(headers);
-            for(int count=0;count<selected.length;count++){
-                rows[0]= AppetizersTable.getValueAt(selected[count],0);
-                rows[1]=AppetizersTable.getValueAt(selected[count],1);
-                tmb.addRow(rows);
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "The Appetizers table is Empty!");
-        }
-    }//GEN-LAST:event_TakeSelectedAppetizersButtonActionPerformed
+    private void appetizersSelectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_appetizersSelectButtonActionPerformed
+        appetizersSelectButton asb = new appetizersSelectButton();
+        asb.actionPerformed();
+    }//GEN-LAST:event_appetizersSelectButtonActionPerformed
 
     private void FastFoodsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FastFoodsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_appetizers";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String sdQuery="Select * From fast_food";
-            PreparedStatement query=connect.prepareStatement(sdQuery);
-            ResultSet rs=query.executeQuery();
-            AppetizersTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Fast Foods Button is not Working");
-        }
+          FastFoodsButton ffb = new FastFoodsButton();
+          ffb.actionPerformed();
     }//GEN-LAST:event_FastFoodsButtonActionPerformed
 
     private void SoupsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SoupsButtonActionPerformed
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            String url="jdbc:mysql://127.0.0.1/dr_appetizers";
-            String user="root";
-            String password="";
-            Connection connect=(Connection)DriverManager.getConnection(url, user, password);
-            
-            String sdQuery="Select * From soups";
-            PreparedStatement query=connect.prepareStatement(sdQuery);
-            ResultSet rs=query.executeQuery();
-            AppetizersTable.setModel(DbUtils.resultSetToTableModel(rs));  
-        }
-        catch(ClassNotFoundException | SQLException e){
-            JOptionPane.showMessageDialog(null, "The Soups Button is not Working");
-        }
+        SoupsButton sb = new SoupsButton();
+        sb.actionPerformed();
     }//GEN-LAST:event_SoupsButtonActionPerformed
   
     public static void main(String args[]) {
@@ -194,10 +152,10 @@ public class Appetizers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable AppetizersTable;
+    public static javax.swing.JTable AppetizersTable;
     private javax.swing.JButton FastFoodsButton;
     private javax.swing.JButton SoupsButton;
-    private javax.swing.JButton TakeSelectedAppetizersButton;
+    private javax.swing.JButton appetizersSelectButton;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
