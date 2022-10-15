@@ -10,6 +10,4 @@ If one wishes to change any order one can select the item and remove it. If one 
 button checks the order out and shows the amount charged. If discounts are active the discounts are take to consideration and then calculated. The exit button 
 exits the system.
 
-![image](https://user-images.githubusercontent.com/75902819/195978117-d9c33e41-9e5f-4f90-834e-7f118c9d5aad.png)
-
 Project Showcase is available on YouTube: https://youtu.be/SB8nj4PWqe8
