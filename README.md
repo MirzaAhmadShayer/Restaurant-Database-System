@@ -11,6 +11,7 @@ button checks the order out and shows the amount charged. If discounts are activ
 exits the system.
 
 Project Showcase is available on YouTube: https://youtu.be/SB8nj4PWqe8
+Project Test Cases Showcase in available on YouTube: https://youtu.be/cwUNjmtuDNM
 
 ![Screenshot (1)](https://user-images.githubusercontent.com/75902819/195978264-df7b6621-9dd2-4a89-9ca3-a3416ac09c40.png)
 
