@@ -14,6 +14,8 @@ Project Showcase is available on YouTube: https://youtu.be/SB8nj4PWqe8
 
 Project Test Cases Showcase in available on YouTube: https://youtu.be/cwUNjmtuDNM
 
+Both videos on YouTube Playlist: https://www.youtube.com/watch?v=SB8nj4PWqe8&list=PLooQutR0U2kCAQ7nqHHAJeQzeEieVZD-7&index=1
+
 ![Screenshot (1)](https://user-images.githubusercontent.com/75902819/195978264-df7b6621-9dd2-4a89-9ca3-a3416ac09c40.png)
 
 ![Screenshot (2)](https://user-images.githubusercontent.com/75902819/195978271-40b53589-be04-4589-b4ee-fc58f60e485f.png)
