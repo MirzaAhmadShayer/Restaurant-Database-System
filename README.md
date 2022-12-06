@@ -1,6 +1,6 @@
 # Restaurant-Database-System
 
-This is a Restaurant Database System made in Java Swing. The database was made in PHPMyAdmin. This system is made using the MVC pattern
+This is a Restaurant Database System made in Java Swing. The database was made in PHPMyAdmin. This system is made using the MVC pattern.
 
 Firstly, people login to the system with username and password. Then they are greeted by the main application.
 The system can show menus of various foods. There is appetizers, bevrages, desserts, extras, main courses, specials. People can also get discounts, know 
